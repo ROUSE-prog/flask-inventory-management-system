@@ -1,5 +1,9 @@
 # Flask Inventory Management System
 
+
+
+<img width="1576" height="1092" alt="Screenshot 2026-06-11 at 5 14 35 PM" src="https://github.com/user-attachments/assets/332ff2de-95a1-4f11-a3b7-03c922a062d3" />
+
 A Flask + CLI inventory management application with OpenFoodFacts API integration.
 
 ## Features
