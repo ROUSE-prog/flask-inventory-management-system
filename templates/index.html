@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory OS</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">FLASK INVENTORY SYSTEM</p>
+      <h1>Inventory OS</h1>
+      <p class="subtitle">A futuristic dashboard for tracking products, stock, and barcode data.</p>
+    </section>
+
+    <section class="grid">
+      {% for item in inventory %}
+      <article class="card">
+        <div class="card-top">
+          <h2>{{ item.name }}</h2>
+          <span class="badge">{{ item.stock }} in stock</span>
+        </div>
+
+        <p class="brand">{{ item.brand }}</p>
+        <p class="price">${{ item.price }}</p>
+        <p class="barcode"># {{ item.barcode }}</p>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>

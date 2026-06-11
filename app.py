@@ -3,8 +3,13 @@
 from flask import Flask, jsonify, request
 from inventory import inventory
 from openfoodfacts import fetch_product_by_barcode
+from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("index.html", inventory=inventory)
 
 # GET all inventory items
 @app.route("/inventory", methods=["GET"])
