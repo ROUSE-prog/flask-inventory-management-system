@@ -51,6 +51,17 @@ def add_item():
 
     return jsonify(new_item), 201
 
+# SEARCH inventory by name
+@app.route("/inventory/search-name/<query>", methods=["GET"])
+def search_inventory(query):
+
+    results = []
+
+    for item in inventory:
+        if query.lower() in item["name"].lower():
+            results.append(item)
+
+    return jsonify(results), 200
 
 # PATCH inventory item
 @app.route("/inventory/<int:item_id>", methods=["PATCH"])
