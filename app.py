@@ -2,6 +2,7 @@
 
 from flask import Flask, jsonify, request
 from inventory import inventory
+from openfoodfacts import fetch_product_by_barcode
 
 app = Flask(__name__)
 
@@ -19,6 +20,17 @@ def get_item(item_id):
             return jsonify(item), 200
 
     return jsonify({"error": "Item not found"}), 404
+
+# GET product data from OpenFoodFacts
+@app.route("/inventory/search/<barcode>", methods=["GET"])
+def search_product(barcode):
+
+    product = fetch_product_by_barcode(barcode)
+
+    if "error" in product:
+        return jsonify(product), 404
+
+    return jsonify(product), 200
 
 
 # POST new inventory item
